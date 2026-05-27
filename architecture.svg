@@ -1,0 +1,47 @@
+<svg width="860" height="440" viewBox="0 0 860 440" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="860" height="440" fill="#FBFCFE"/>
+  <text x="30" y="40" font-size="20" font-weight="700" fill="#0A1B3D">VPC Infrastructure as Code — Architecture</text>
+  <line x1="30" y1="54" x2="830" y2="54" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- Internet -->
+  <text x="80" y="200" font-size="22" text-anchor="middle">🌐</text>
+  <text x="80" y="228" font-size="12" fill="#334155" text-anchor="middle">Internet</text>
+
+  <!-- IGW -->
+  <rect x="150" y="170" width="90" height="56" rx="9" fill="#fff" stroke="#8C4FFF" stroke-width="2"/>
+  <text x="195" y="194" font-size="12" font-weight="600" fill="#8C4FFF" text-anchor="middle">Internet</text>
+  <text x="195" y="210" font-size="12" font-weight="600" fill="#8C4FFF" text-anchor="middle">Gateway</text>
+
+  <!-- VPC box -->
+  <rect x="280" y="80" width="540" height="320" rx="14" fill="none" stroke="#1B660F" stroke-width="2"/>
+  <text x="300" y="104" font-size="13" font-weight="700" fill="#1B660F">VPC  10.0.0.0/16</text>
+
+  <!-- public subnet -->
+  <rect x="305" y="120" width="240" height="120" rx="10" fill="#F0FBF3" stroke="#3FA34D" stroke-width="1.5"/>
+  <text x="320" y="142" font-size="12" font-weight="600" fill="#3FA34D">Public Subnet  10.0.1.0/24</text>
+  <rect x="345" y="158" width="120" height="56" rx="8" fill="#fff" stroke="#ED7100" stroke-width="2"/>
+  <text x="405" y="182" font-size="12" font-weight="600" fill="#ED7100" text-anchor="middle">EC2</text>
+  <text x="405" y="198" font-size="10" fill="#64748B" text-anchor="middle">bastion / web</text>
+
+  <!-- private subnet -->
+  <rect x="305" y="260" width="240" height="120" rx="10" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+  <text x="320" y="282" font-size="12" font-weight="600" fill="#475569">Private Subnet  10.0.2.0/24</text>
+  <rect x="345" y="298" width="120" height="56" rx="8" fill="#fff" stroke="#ED7100" stroke-width="2"/>
+  <text x="405" y="322" font-size="12" font-weight="600" fill="#ED7100" text-anchor="middle">EC2</text>
+  <text x="405" y="338" font-size="10" fill="#64748B" text-anchor="middle">app / db</text>
+
+  <!-- route tables / SG -->
+  <rect x="590" y="150" width="200" height="60" rx="9" fill="#fff" stroke="#2E27AD" stroke-width="2"/>
+  <text x="690" y="174" font-size="12" font-weight="600" fill="#2E27AD" text-anchor="middle">Route Tables</text>
+  <text x="690" y="192" font-size="10" fill="#64748B" text-anchor="middle">public → IGW</text>
+
+  <rect x="590" y="290" width="200" height="60" rx="9" fill="#FFF7ED" stroke="#DD344C" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="690" y="314" font-size="12" font-weight="600" fill="#DD344C" text-anchor="middle">Security Groups</text>
+  <text x="690" y="332" font-size="10" fill="#94A3B8" text-anchor="middle">stateful firewall rules</text>
+
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#94A3B8"/></marker>
+  </defs>
+  <line x1="104" y1="190" x2="148" y2="195" stroke="#94A3B8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="240" y1="190" x2="343" y2="186" stroke="#94A3B8" stroke-width="2" marker-end="url(#ar)"/>
+</svg>
