@@ -15,6 +15,11 @@ variable "region" {
   default = "eu-west-2" # London
 }
 
+variable "ssh_cidr" {
+  description = "Address range allowed to SSH in, for example 203.0.113.10/32"
+  type        = string
+}
+
 # ---------------------------------------------------------------------------
 # VPC
 # ---------------------------------------------------------------------------
@@ -66,7 +71,7 @@ resource "aws_route_table_association" "public" {
 }
 
 # ---------------------------------------------------------------------------
-# Security group - allow SSH in, all out (tighten for real use)
+# Security group - SSH from one address range, HTTP from anywhere, all out
 # ---------------------------------------------------------------------------
 resource "aws_security_group" "web" {
   name        = "web-sg"
@@ -78,7 +83,7 @@ resource "aws_security_group" "web" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # restrict to your IP in production
+    cidr_blocks = [var.ssh_cidr]
   }
 
   ingress {

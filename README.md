@@ -26,6 +26,9 @@ Terraform · VPC · Subnets · Internet Gateway · Route Tables · Security Grou
 > Requires Terraform and the AWS CLI configured with your credentials.
 
 ```bash
+# SSH is only allowed from your own IP address
+export TF_VAR_ssh_cidr="$(curl -s https://checkip.amazonaws.com)/32"
+
 terraform init      # download the AWS provider
 terraform plan      # preview what will be created
 terraform apply     # build the network
